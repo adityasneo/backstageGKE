@@ -1,0 +1,23 @@
+# kubernetes/backstage.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backstagefe
+  namespace: backstage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backstagefe
+  template:
+    metadata:
+      labels:
+        app: backstagefe
+    spec:
+      containers:
+        - name: backstagefe
+          image: adityalella/backstage-fe
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
