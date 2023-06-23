@@ -1,0 +1,10 @@
+backend:
+  enabled: true
+  nodeEnv: development
+  demoData: true
+  replicaCount: 1
+  image:
+    repository: adityalella/backstage
+    pullPolicy: IfNotPresent
+  containerPort: 7007
+  serviceType: ClusterIP

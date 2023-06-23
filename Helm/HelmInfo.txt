@@ -1,3 +1,5 @@
+Helm helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application
+
 Key Components
 1.Helm chart
 2.Config Values

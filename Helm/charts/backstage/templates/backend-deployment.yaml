@@ -1,0 +1,42 @@
+# kubernetes/backstage.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "backstagehelm.fullname" . }}-backend
+  
+spec:
+  replicas: {{ .Values.backend.replicaCount }}
+  selector:
+    matchLabels:
+      app: backstage
+      component: backend
+  template:
+    metadata:
+      labels:
+        app: backstage
+        component: backend
+    spec:
+      containers:
+        - name: backstage
+          image: {{ .Values.backend.image.repository }}
+          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 7007
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "backend.serviceName" . }}
+
+spec:
+  ports:
+    - port: 80
+      targetPort: {{ .Values.backend.containerPort }}
+
+  selector:
+    app: backstage
+    component: backend
+
+  type: {{ .Values.backend.serviceType }}
+{{- end }}

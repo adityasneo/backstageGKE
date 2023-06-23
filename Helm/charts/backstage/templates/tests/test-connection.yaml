@@ -1,0 +1,16 @@
+#https://helm.sh/docs/topics/chart_tests/
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "backstagehelm.fullname" . }}-test-connection"
+  labels:
+    {{- include "backstagehelm.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "backstagehelm.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
