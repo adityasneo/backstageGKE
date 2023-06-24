@@ -39,4 +39,3 @@ spec:
     component: backend
 
   type: {{ .Values.backend.serviceType }}
-{{- end }}
