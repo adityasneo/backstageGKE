@@ -1,0 +1,13 @@
+appConfig:
+  app:
+    baseUrl: https://backstage.mydomain.com
+    title: Backstage
+  backend:
+    baseUrl: https://backstage.mydomain.com
+    cors:
+      origin: https://backstage.mydomain.com
+  lighthouse:
+    baseUrl: https://backstage.mydomain.com/lighthouse-api
+  techdocs:
+    storageUrl: https://backstage.mydomain.com/api/techdocs/static/docs
+    requestUrl: https://backstage.mydomain.com/api/techdocs
