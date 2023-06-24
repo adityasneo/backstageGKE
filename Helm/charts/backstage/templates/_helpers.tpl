@@ -96,6 +96,6 @@ Name of the frontend service
 {{/*
 app-config file name
 */}}
-{{- define "backstage.appConfigFilename" -}}
-{{- "app-config.development.yaml" -}}
+{{- define "backstagehelm.appConfigFilename" -}}
+{{- "app-config.yaml" -}}
 {{- end -}}
